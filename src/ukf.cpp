@@ -88,7 +88,6 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
      *  Initialization
      ****************************************************************************/
 
-
     if (!is_initialized_) {
         /**
       TODO:
@@ -137,7 +136,6 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
         }
         is_initialized_ = true;
         cout << x_<< endl;
-        cout << "Initialization done: " << endl;
 
     }else {
         double current_time_us=meas_package.timestamp_;

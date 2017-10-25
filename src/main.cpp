@@ -26,7 +26,6 @@ std::string hasData(std::string s) {
   return "";
 }
 
-
 int main()
 {
   uWS::Hub h;
