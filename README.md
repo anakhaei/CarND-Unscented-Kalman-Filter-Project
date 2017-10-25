@@ -30,8 +30,8 @@ I used CTRV model for state representation:
    * Initializing the state `x_` with the first measurement.It can be lidar or radar.
    * Createing the covariance matrix. I used the following `P_` matrix:
    
-             |0.1,   0.0,    0.0,   0.0,   0.0|
-             |0.0,   0.1,    0.0,   0.0,   0.0|
+             |1.0,   0.0,    0.0,   0.0,   0.0|
+             |0.0,   1.0,    0.0,   0.0,   0.0|
              |0.0,   0.0,    0.5,   0.0,   0.0|
              |0.0,   0.0,    0.0,   0.5,   0.0|
              |0.0,   0.0,    0.0,   0.0,   0.5|
@@ -41,7 +41,7 @@ I used CTRV model for state representation:
 ### Prediction:
    * Augment state vector and covarience matrix
    * Predict sigma points, the state, and the state covariance matrix based on `delta_t`
-   * use appropriate process noise `std_a_ = 6 m/s^2` and 'std_yawdd_ = 6 rad/s^2' to predict the the state, and the state covariance matrix
+   * use appropriate process noise `std_a_ = 3 m/s^2` and `std_yawdd_ = 3 rad/s^2' to predict the the state, and the state covariance matrix
 
 ### Update:
    * Useing the sensor type to perform the update step.
@@ -50,7 +50,7 @@ I used CTRV model for state representation:
 
        
 ### Performance:
-Based on this implementation, I got the following RMSE for data set provided for this project: `[0.087, 0.096, 0.40, 0.39]`
+Based on this implementation, I got the following RMSE for data set provided for this project: `[0.0753, 0.0884, 0.3386, 0.2990]`
 
        
 ## Discussion
@@ -65,11 +65,11 @@ Based on this implementation, I got the following RMSE for data set provided for
     * conclusion: Certainly using the both sesnsors will result in a better performance.
 
 3. Also, I compared my the performance of UKF and EKF algorithm here:
-    * UKF: `[0.08, 0.09, 0.40, 0.39]`
+    * UKF: `[0.07, 0.08, 0.33, 0.29]`
     * EKF: `[0.11, 0.11, 0.52, 0.52]`
     * Conclusion: UKF performs slightly better.
 
-4. I was able to meet the required performance by using both laser and radar and also lower the process noise to `std_a_ = 6 m/s^2` and `std_yawdd_ = 6 rad/s^2`
+4. I was able to meet the required performance by using both laser and radar and also lower the process noise to `std_a_ = 3 m/s^2` and `std_yawdd_ = 3 rad/s^2`
 
 
 
